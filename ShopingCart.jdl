@@ -1,0 +1,100 @@
+application {
+  config {
+    baseName ShoppingCart
+    applicationType monolith
+    packageName app.project.cart
+    buildTool maven,
+    devDatabaseType postgresql,
+    prodDatabaseType postgresql,
+    authenticationType jwt,
+    testFrameworks [cypress],
+    clientTheme sketchy,
+    languages [es,en],
+    nativeLanguage es,
+    enableSwaggerCodegen true,
+    clientFramework react
+  }
+  entities *
+}
+
+entity Payment {
+	id Long required unique,
+    name String required
+}
+
+entity Orders {
+	id Long required unique,
+    date LocalDate required,
+    time LocalDate required,
+    total Float required
+}
+
+entity OrderDetails{
+	id Long required unique,
+    quantity Integer required,
+    price Float required
+}
+
+entity Users{
+	id Long required unique,
+    name String required,
+    email String required,
+    password String required,
+    birth LocalDate required
+}
+
+entity Menu{
+	id Long required unique,
+    name String required,
+    description String required,
+    price Float required,
+    image String required
+}
+
+entity Card{
+	id Long required unique,
+    number Long required,
+    name String required,
+    expiration LocalDate required,
+    code Integer required,
+    dni Long required,
+}
+
+entity Company{
+	id Long required unique,
+    name String required
+}
+
+entity Cart{
+	id Long required unique,
+    quantity Integer required
+}
+
+relationship ManyToOne{
+	Orders{payment required} to Payment
+    Orders{users required} to Users
+    Orders{card} to Card
+}
+
+relationship ManyToOne{
+	OrderDetails{orders required} to Orders
+    OrderDetails{menu required} to Menu
+}
+
+relationship OneToOne{
+	Card{company required} to Company
+}
+
+relationship ManyToOne{
+	Card{users required} to Users
+}
+
+relationship OneToOne{
+	Cart{users required} to Users
+}
+
+relationship ManyToOne{
+	Cart{menu required} to Menu
+}
+
+

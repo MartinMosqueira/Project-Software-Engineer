@@ -1,0 +1,27 @@
+{
+  "shoppingCartApp": {
+    "users": {
+      "home": {
+        "title": "Users",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Users",
+        "createOrEditLabel": "Crear o editar Users",
+        "notFound": "Ningún Users encontrado"
+      },
+      "created": "Un nuevo Users ha sido creado con el identificador {{ param }}",
+      "updated": "Un Users ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Users ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Users {{ id }}?"
+      },
+      "detail": {
+        "title": "Users"
+      },
+      "id": "Id",
+      "name": "Name",
+      "email": "Email",
+      "password": "Password",
+      "birth": "Birth"
+    }
+  }
+}
