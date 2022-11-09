@@ -32,9 +32,13 @@ spring:
       indent-output: true
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:postgresql://localhost:5432/ShoppingCart
-    username: ShoppingCart
-    password:
+    url: jdbc:postgresql://localhost:5432/CartDB
+    username: postgres
+    password: 1234
+    driver-class-name: org.postgresql.Driver
+    ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: false
     hikari:
       poolName: Hikari
       auto-commit: false
